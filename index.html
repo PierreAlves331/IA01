@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>História Interativa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>História Interativa: A Importância da História na Sociedade</h1>
+        <div id="story">
+            <p>Você está prestes a embarcar em uma jornada para explorar como as escolhas moldam o futuro. A história começa aqui:</p>
+            <p><strong>Você já se perguntou como a história molda a sociedade? É por meio de eventos passados que conseguimos entender quem somos e para onde estamos indo.</strong></p>
+
+            <div class="choices">
+                <button onclick="nextStep('choice1')">Sim, sempre me perguntei sobre isso!</button>
+                <button onclick="nextStep('choice2')">Não, nunca parei para pensar sobre isso.</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function nextStep(choice) {
+            const storyElement = document.getElementById('story');
+            const choicesElement = document.querySelector('.choices');
+            if (choice === 'choice1') {
+                storyElement.innerHTML = `
+                    <p><strong>Sim, sempre me perguntei sobre isso!</strong></p>
+                    <p>Você decide que é hora de explorar a fundo a importância da história. Você quer saber se a história realmente tem poder sobre as ações atuais das pessoas. Sua jornada começa com um livro antigo sobre eventos históricos.</p>
+                    <div class="choices">
+                        <button onclick="nextStep('choice1A')">Abrir o livro e ler sobre as revoluções sociais.</button>
+                        <button onclick="nextStep('choice1B')">Procurar por mais fontes de pesquisa na biblioteca.</button>
+                    </div>
+                `;
+            } else if (choice === 'choice2') {
+                storyElement.innerHTML = `
+                    <p><strong>Não, nunca parei para pensar sobre isso.</strong></p>
+                    <p>Você decide que a história talvez não seja tão importante assim, até que alguém lhe conta sobre eventos que transformaram a sociedade. Isso te deixa curioso e você começa a investigar mais.</p>
+                    <div class="choices">
+                        <button onclick="nextStep('choice2A')">Pesquisando sobre os eventos que marcaram mudanças políticas.</button>
+                        <button onclick="nextStep('choice2B')">Conversar com um historiador local sobre como os acontecimentos passados moldam o presente.</button>
+                    </div>
+                `;
+            } else if (choice === 'choice1A') {
+                storyElement.innerHTML = `
+                    <p><strong>Você abre o livro e começa a ler sobre revoluções sociais.</strong></p>
+                    <p>Enquanto lê, percebe como movimentos como a Revolução Francesa e a Revolução Industrial tiveram impacto duradouro na sociedade atual. A história, na verdade, tem um grande poder sobre a forma como os indivíduos e grupos se comportam.</p>
+                    <p><strong>Fim da história.</strong></p>
+                `;
+                choicesElement.style.display = 'none';
+            } else if (choice === 'choice1B') {
+                storyElement.innerHTML = `
+                    <p><strong>Você decide procurar mais fontes na biblioteca.</strong></p>
+                    <p>Após explorar diversos livros e artigos, você aprende que a história está cheia de exemplos de como escolhas no passado afetam as sociedades no presente.</p>
+                    <p><strong>Fim da história.</strong></p>
+                `;
+                choicesElement.style.display = 'none';
+            } else if (choice === 'choice2A') {
+                storyElement.innerHTML = `
+                    <p><strong>Você começa a pesquisar sobre eventos históricos que causaram grandes mudanças políticas.</strong></p>
+                    <p>Você descobre que muitas revoluções e movimentos sociais ocorreram como resposta às desigualdades. A história de um país é frequentemente moldada pela luta por direitos e liberdades.</p>
+                    <p><strong>Fim da história.</strong></p>
+                `;
+                choicesElement.style.display = 'none';
+            } else if (choice === 'choice2B') {
+                storyElement.innerHTML = `
+                    <p><strong>Você decide conversar com um historiador local sobre como os acontecimentos passados moldam o presente.</strong></p>
+                    <p>O historiador explica como certos momentos críticos na história definiram o curso da civilização humana, ajudando a formar os sistemas políticos, sociais e econômicos que temos hoje.</p>
+                    <p><strong>Fim da história.</strong></p>
+                `;
+                choicesElement.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
